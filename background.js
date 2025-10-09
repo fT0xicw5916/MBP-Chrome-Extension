@@ -12,6 +12,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
 function updatePopup(tab) {
     if(tab.url.includes("managebac.cn")) {
+        chrome.scripting.executeScript({
+            target: {tabId: tab.id},
+            files: ["scripts/content.js"]
+        });
         chrome.action.setPopup({ tabId: tab.id, popup: "index.html" });
     } else {
         chrome.action.setPopup({ tabId: tab.id, popup: "default.html" });
