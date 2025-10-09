@@ -8,6 +8,7 @@ function main() {
     Array.from(section).forEach((child, index) => {
         if(index % 2 === 1 && index !== 1) {
             var fullName = child.childNodes[1].innerText;
+            var score = child.childNodes[3].innerText;
             var category = [];
             if(fullName === "Overall" || fullName === "整体") {
                 category.push(fullName);
@@ -16,11 +17,12 @@ function main() {
                 category.push(fullName.slice(0, fullName.indexOf(' ')));
                 category.push(fullName.slice(fullName.indexOf('(') + 1, fullName.indexOf(')')));
             }
-            category.push(child.childNodes[3].innerText);
+
+            category.push(score === '-' ? null : score);
             grades.push(category);
         }
     });
-    console.log(grades);
+    chrome.runtime.sendMessage({type: "grades", data: grades});
 }
 
 main();

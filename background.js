@@ -10,6 +10,12 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
 });
 
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if(message.type === "grades") {
+        chrome.storage.local.set({grades: message.data});
+    }
+});
+
 function updatePopup(tab) {
     if(tab.url.includes("managebac.cn")) {
         chrome.scripting.executeScript({
