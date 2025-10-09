@@ -15,10 +15,10 @@ function main() {
                 category.push(null);
             } else {
                 category.push(fullName.slice(0, fullName.indexOf(' ')));
-                category.push(fullName.slice(fullName.indexOf('(') + 1, fullName.indexOf(')')));
+                category.push(fullName.slice(fullName.indexOf('(') + 1, fullName.indexOf('%')));
             }
 
-            category.push(score === '-' ? null : score);
+            category.push(score === '-' ? null : score.slice(score.indexOf('(') + 1, score.indexOf('%')));
             grades.push(category);
         }
     });

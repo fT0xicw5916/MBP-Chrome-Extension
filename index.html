@@ -1,9 +1,17 @@
 <html>
     <head>
-        <script src="scripts/index.js"></script>
+        <script src="scripts/index.js" defer></script>
     </head>
     <body>
-        <h1>Hello ManageBac!</h1>
-        <p id="grades"></p>
+        <h2>Simulate Exam</h2>
+        <form id="sim-exam-form">
+            <select id="mid-final">
+                <option value="mid">Mid-term</option>
+                <option value="final">Final</option>
+            </select>
+            <input type="number" id="target" required min="0" max="100" step="0.01" placeholder="Target overall">
+            <button type="submit">Simulate</button>
+        </form>
+        <p id="result"></p>
     </body>
 </html>
