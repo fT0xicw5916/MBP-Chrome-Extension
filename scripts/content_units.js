@@ -3,6 +3,8 @@ function getElementByXPath(path) {
 }
 
 function main() {
+    chrome.runtime.sendMessage({type: "url", data: "units"});
+    
     var section = getElementByXPath("/html/body/div/main/aside/div/section[2]/div").childNodes;
     var grades = [];
     Array.from(section).forEach((child, index) => {

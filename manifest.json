@@ -14,11 +14,12 @@
     },
     "content_scripts": [
         {
-            "js": ["scripts/content.js"],
-            "matches": [
-                "https://*.managebac.cn/student/classes*units",
-                "https://*.managebac.cn/student/classes*core_tasks"
-            ]
+            "js": ["scripts/content_units.js"],
+            "matches": ["https://*.managebac.cn/student/classes/*/units"]
+        },
+        {
+            "js": ["scripts/content_core_tasks.js"],
+            "matches": ["https://*.managebac.cn/student/classes/*/core_tasks"]
         }
     ],
     "background": {

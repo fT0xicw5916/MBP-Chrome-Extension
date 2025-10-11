@@ -1,6 +1,7 @@
 <html>
     <head>
-        <script src="scripts/index.js" defer></script>
+        <link rel="stylesheet" href="css/popup.css">
+        <script src="scripts/units.js" defer></script>
     </head>
     <body>
         <h2>Simulate Exam</h2>
@@ -9,7 +10,7 @@
                 <option value="mid">Mid-term</option>
                 <option value="final">Final</option>
             </select>
-            <input type="number" id="target" required min="0" max="100" step="0.01" placeholder="Target overall">
+            <input type="number" id="target" required min="0" max="100" step="0.01" placeholder="Target overall" style="width: 110px;">
             <button type="submit">Simulate</button>
         </form>
         <p id="result"></p>
