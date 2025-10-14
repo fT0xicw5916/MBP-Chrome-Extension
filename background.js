@@ -23,7 +23,5 @@ function updatePopup(tab) {
             files: ["scripts/content.js"]
         });
         chrome.action.setPopup({ tabId: tab.id, popup: "index.html" });
-    } else {
-        chrome.action.setPopup({ tabId: tab.id, popup: "default.html" });
     }
 }

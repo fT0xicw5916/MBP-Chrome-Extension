@@ -16,8 +16,8 @@
         {
             "js": ["scripts/content.js"],
             "matches": [
-                "https://*.managebac.cn/student/classes*units",
-                "https://*.managebac.cn/student/classes*core_tasks"
+                "https://*.managebac.cn/student/classes/*/units",
+                "https://*.managebac.cn/student/classes/*/core_tasks"
             ]
         }
     ],
