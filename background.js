@@ -19,8 +19,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         } else if(message.data === "units") {
             chrome.action.setPopup({ tabId: sender.tab.id, popup: "units.html" });
         }
-    } else if(message.type === "tasks") {
-        chrome.storage.local.set({tasks: message.data});
+    } else if(message.type === "task_num") {
+        chrome.storage.local.set({task_num: message.data});
     }
 });
 
@@ -31,13 +31,13 @@ function updatePopup(tab) {
                 target: {tabId: tab.id},
                 files: ["scripts/content_units.js"]
             });
-            chrome.action.setPopup({ tabId: sender.tab.id, popup: "units.html" });
+            chrome.action.setPopup({ tabId: tab.id, popup: "units.html" });
         } else if(tab.url.includes("core_tasks")) {
             chrome.scripting.executeScript({
                 target: {tabId: tab.id},
                 files: ["scripts/content_core_tasks.js"]
             });
-            chrome.action.setPopup({ tabId: sender.tab.id, popup: "core_tasks.html" });
+            chrome.action.setPopup({ tabId: tab.id, popup: "core_tasks.html" });
         }
     }
 }
