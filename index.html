@@ -1,18 +1,19 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/style.css">
         <script src="scripts/index.js" defer></script>
     </head>
     <body>
-        <h2>Simulate Exam</h2>
+        <h2 style="color: white; text-align: center; font-size: 200%;"><u>Simulate Exam</u></h2>
         <form id="sim-exam-form">
-            <select id="mid-final">
+            <select id="mid-final" style="width: 100%;">
                 <option value="mid">Mid-term</option>
                 <option value="final">Final</option>
             </select>
+            <br><br>
             <input type="number" id="target" required min="0" max="100" step="0.01" placeholder="Target overall" style="width: 110px;">
             <button type="submit">Simulate</button>
         </form>
-        <p id="result"></p>
+        <strong><p id="result" style="color: white; text-align: center; font-size: 150%;"></p></strong>
     </body>
 </html>

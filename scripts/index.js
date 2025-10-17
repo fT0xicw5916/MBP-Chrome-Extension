@@ -37,6 +37,6 @@ document.getElementById("sim-exam-form").addEventListener("submit", function(eve
             result = (((a + 0.3) * target) - (tmp * overall)) / 0.3;
         }
 
-        document.getElementById("result").innerHTML = result.toFixed(2);
+        document.getElementById("result").innerHTML = "- " + result.toFixed(2) + " -";
     });
 });
