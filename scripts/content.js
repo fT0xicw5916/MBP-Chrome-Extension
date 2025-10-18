@@ -5,8 +5,8 @@ function getElementByXPath(path) {
 function main() {
     var section = getElementByXPath("/html/body/div/main/aside/div/section[2]/div").childNodes;
     var grades = [];
-    Array.from(section).forEach((child, index) => {
-        if(index % 2 === 1 && index !== 1) {
+    Array.from(section).forEach((child) => {
+        if(child.nodeType === 1) {
             var fullName = child.childNodes[1].innerText;
             var score = child.childNodes[3].innerText;
             var category = [];
