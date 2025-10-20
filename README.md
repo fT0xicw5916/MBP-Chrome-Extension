@@ -4,6 +4,7 @@ Just a simple, minimal Chrome extension built around ManageBac that adds a lot o
 ## Table of contents
 * [Features](#features)
 * [Usage](#usage)
+* [Privacy Policy](PRIVACY.md)
 
 ## Features
 - GPA calculator for mid-terms and finals
