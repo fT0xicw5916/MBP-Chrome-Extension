@@ -27,6 +27,7 @@ function main() {
             grades.push(category);
         }
     });
+    grades.shift();
     chrome.runtime.sendMessage({type: "grades", data: grades});
 }
 
