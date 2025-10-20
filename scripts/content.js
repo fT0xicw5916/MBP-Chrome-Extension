@@ -18,7 +18,12 @@ function main() {
                 category.push(fullName.slice(fullName.indexOf('(') + 1, fullName.indexOf('%')));
             }
 
-            category.push(score === '-' ? null : score.slice(score.indexOf('(') + 1, score.indexOf('%')));
+            if(score === "(NaN%)") {
+                category.push(null);
+            } else {
+                category.push(score === '-' ? null : score.slice(score.indexOf('(') + 1, score.indexOf('%')));
+            }
+            
             grades.push(category);
         }
     });
