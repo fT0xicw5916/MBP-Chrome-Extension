@@ -29,6 +29,13 @@ function main() {
     });
     grades.shift();
     chrome.runtime.sendMessage({type: "grades", data: grades});
+    return grades;
 }
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if(message.type === "update") {
+        sendResponse({grades: main()});
+    }
+});
 
 main();

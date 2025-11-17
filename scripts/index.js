@@ -3,7 +3,6 @@ document.getElementById("sim-exam-form").addEventListener("submit", function(eve
 
     chrome.storage.local.get(["grades"], function(r) {
         var grades = r.grades;
-        console.log(grades);
 
         var overall = grades[0][2];
         overall = overall === null ? 0. : parseFloat(overall);
@@ -21,7 +20,7 @@ document.getElementById("sim-exam-form").addEventListener("submit", function(eve
         if(document.getElementById("mid-final").value === "mid") {
             var tmp = 0.;
             grades.forEach(function(category, idx) {
-                if(category[2] !== null && idx !== 0 && (category[0] !== "Mid-term Exam" && category[0] !== "期中考试")) {
+                if(category[2] !== null && idx !== 0 && (category[0] !== "Mid-term" && category[0] !== "期中考试")) {
                     tmp += parseInt(category[1]) / 100.;
                 }
             });
@@ -30,7 +29,7 @@ document.getElementById("sim-exam-form").addEventListener("submit", function(eve
         } else {
             var tmp = 0.;
             grades.forEach(function(category, idx) {
-                if(category[1] !== null && idx !== 0 && (category[0] !== "Final Exam" && category[0] !== "期末考试")) {
+                if(category[2] !== null && idx !== 0 && (category[0] !== "Final" && category[0] !== "期末考试")) {
                     tmp += parseInt(category[1]) / 100.;
                 }
             });
@@ -39,5 +38,13 @@ document.getElementById("sim-exam-form").addEventListener("submit", function(eve
         }
 
         document.getElementById("result").innerHTML = "- " + result.toFixed(2) + " -";
+    });
+});
+
+chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.sendMessage(tabs[0].id, {type: "update", data: 1}, (response) => {
+        if(response && response.grades) {
+            chrome.storage.local.set({grades: response.grades});
+        }
     });
 });
