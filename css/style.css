@@ -2,3 +2,13 @@ html {
     width: 200px;
     background-color: rgb(120, 120, 120);
 }
+
+.expand {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .5s ease;
+}
+
+.trigger:hover + .expand, .expand:hover {
+    max-height: 200px;
+}
