@@ -3,7 +3,7 @@ function getElementByXPath(path) {
 }
 
 function main() {
-    var section = getElementByXPath("/html/body/div/main/aside/div/section[2]/div").childNodes;
+    var section = getElementByXPath("/html/body/div[2]/main/aside/div[2]/div/div[2]/div[1]/section[2]/div").childNodes;
     var grades = [];
     Array.from(section).forEach((child) => {
         if(child.nodeType === 1) {
