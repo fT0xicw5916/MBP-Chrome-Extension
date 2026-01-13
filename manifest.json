@@ -1,7 +1,7 @@
 {
     "name": "ManageBac Plus",
     "description": "Just a simple Chrome extension built around ManageBac that adds a lot of useful functions to it.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "manifest_version": 3,
     "permissions": [
         "tabs", "scripting", "storage"
